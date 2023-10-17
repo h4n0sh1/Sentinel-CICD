@@ -80,8 +80,9 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@v3
-      run:  |
-        sed 's/configtenantId/5fa08688-b200-4f9d-aefa-d604d7c550fa/' playbooks/azuredeploy.json
+     
+    - name: replace 
+      run: get-content playbooks/azuredeploy.json | %{$_ -replace "configtenantId","5fa08688-b200-4f9d-aefa-d604d7c550fa"}
     
     - name: Deploy Content to Azure Sentinel
       uses: azure/powershell@v1
