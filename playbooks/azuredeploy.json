@@ -7,7 +7,7 @@
             "type": "string"
         },
         "application_ID": {
-            "defaultValue": "$applicationId",
+            "defaultValue": "#{applicationId}",
             "type": "string"
         },
         "application_secret": {
@@ -15,7 +15,7 @@
             "type": "securestring"
         },
         "Tenant_ID": {
-            "defaultValue": "5fa08688-b200-4f9d-aefa-d604d7c550fa",
+            "defaultValue": "#{tenantId}",
             "type": "string"
         },
         "LogAnalyticsWorkspaceID": {
