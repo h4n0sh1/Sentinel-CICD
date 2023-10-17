@@ -33,9 +33,10 @@ jobs:
       rootDirectory: '${{ github.workspace }}'
       githubAuthToken: ${{ secrets.GITHUB_TOKEN }}
       smartDeployment: 'true'
+      
       applicationId: ${{ secrets.application_id }}
       applicationSecret : ${{ secrets.application_secret }}
-      tenantId : ${{ secrets.tenant_id }}
+      
       workspaceKey : ${{ secrets.workspace_key}}
       username : ${{ secrets.username }}
 
