@@ -88,7 +88,7 @@ jobs:
       run: powershell -Command "(gc playbooks/azuredeploy.json) -replace '$applicationId', '${{ env.applicationId }}' | Out-File -encoding ASCII playbooks/azuredeploy.json"
     
     - name: replace cs
-    run: powershell -Command "(gc playbooks/azuredeploy.json) -replace '$applicationSecret', '${{ env.applicationSecret }}' | Out-File -encoding ASCII playbooks/azuredeploy.json"    
+      run: powershell -Command "(gc playbooks/azuredeploy.json) -replace '$applicationSecret', '${{ env.applicationSecret }}' | Out-File -encoding ASCII playbooks/azuredeploy.json"    
     
     - name: replace wid
       run: powershell -Command "(gc playbooks/azuredeploy.json) -replace '$workspaceId', '${{ env.workspaceId }}' | Out-File -encoding ASCII playbooks/azuredeploy.json"
