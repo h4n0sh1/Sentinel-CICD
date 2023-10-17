@@ -33,11 +33,6 @@ jobs:
       rootDirectory: '${{ github.workspace }}'
       githubAuthToken: ${{ secrets.GITHUB_TOKEN }}
       smartDeployment: 'true'
-      tenantId : ${{ secrets.tenant_id }}
-      applicationId: ${{ secrets.application_id }}
-      applicationSecret : ${{ secrets.application_secret }}
-      workspaceKey : ${{ secrets.workspace_key}}
-      username : ${{ secrets.username }}
       trigger : 'workflow'
 
 
@@ -80,10 +75,21 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     
+    - name: replace-token
+      uses: cschleiden/replace-tokens@v1
+      with:
+        files: 'azuredeploy.json'
+      env:
+        tenantId : ${{ secrets.tenant_id }}
+        applicationId: ${{ secrets.application_id }}
+        applicationSecret : ${{ secrets.application_secret }}
+        workspaceKey : ${{ secrets.workspace_key}}
+        username : ${{ secrets.username }}
+
+
     - name: Deploy Content to Azure Sentinel
       uses: azure/powershell@v1
       with:
-
         azPSVersion: 'latest'
         inlineScript: |
           ${{ github.workspace }}//.github/workflows/azure-sentinel-deploy-bb87ef19-63de-4441-a12b-ebadfde77b1e.ps1
