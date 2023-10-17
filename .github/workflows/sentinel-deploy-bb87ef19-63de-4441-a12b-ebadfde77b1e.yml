@@ -43,13 +43,6 @@ jobs:
 
     steps:
 
-    - name: Update azuredeploy.json version
-      uses: jossef/action-set-json-field@v2.1
-      with:
-        file: playbooks/azuredeploy.json
-        field: tenant_ID
-        value: { "defaultValue": ${{ secrets.tenant_id }}, "type": "string"}
-
     - name: Login to Azure (Attempt 1)
       continue-on-error: true
       id: login1
@@ -87,6 +80,13 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@v3
+
+    - name: Update azuredeploy.json version
+      uses: jossef/action-set-json-field@v2.1
+      with:
+        file: playbooks/azuredeploy.json
+        field: tenant_ID
+        value: ${{ secrets.tenant_id }}
     
     - name: Deploy Content to Azure Sentinel
       uses: azure/powershell@v1
