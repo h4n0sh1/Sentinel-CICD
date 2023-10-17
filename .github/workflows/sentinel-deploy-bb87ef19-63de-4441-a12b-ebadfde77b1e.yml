@@ -38,6 +38,7 @@ jobs:
       applicationSecret : ${{ secrets.application_secret }}
       workspaceKey : ${{ secrets.workspace_key}}
       username : ${{ secrets.username }}
+      trigger : 'workflow'
 
 
     steps:
