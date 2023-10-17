@@ -81,17 +81,22 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
      
-    - name: replace 
+    - name: replace tid
       run: powershell -Command "(gc playbooks/azuredeploy.json) -replace '$tenantId', '${{ env.tenantId }}' | Out-File -encoding ASCII playbooks/azuredeploy.json"
-    - name: replace 
+    
+    - name: replace cid
       run: powershell -Command "(gc playbooks/azuredeploy.json) -replace '$applicationId', '${{ env.applicationId }}' | Out-File -encoding ASCII playbooks/azuredeploy.json"
-    - name: replace 
+    
+    - name: replace cs
     run: powershell -Command "(gc playbooks/azuredeploy.json) -replace '$applicationSecret', '${{ env.applicationSecret }}' | Out-File -encoding ASCII playbooks/azuredeploy.json"    
-    - name: replace 
+    
+    - name: replace wid
       run: powershell -Command "(gc playbooks/azuredeploy.json) -replace '$workspaceId', '${{ env.workspaceId }}' | Out-File -encoding ASCII playbooks/azuredeploy.json"
-    - name: replace 
+    
+    - name: replace wk
       run: powershell -Command "(gc playbooks/azuredeploy.json) -replace '$workspaceKey', '${{ env.workspaceKey }}' | Out-File -encoding ASCII playbooks/azuredeploy.json"    
-    - name: replace 
+    
+    - name: replace usr
       run: powershell -Command "(gc playbooks/azuredeploy.json) -replace '$username', '${{ env.username }}' | Out-File -encoding ASCII playbooks/azuredeploy.json"  
     
     - name: Deploy Content to Azure Sentinel
