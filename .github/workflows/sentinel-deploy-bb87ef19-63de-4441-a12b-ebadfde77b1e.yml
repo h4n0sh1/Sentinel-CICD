@@ -81,12 +81,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Update azuredeploy.json version
-      uses: jossef/action-set-json-field@v2.1
-      with:
-        file: playbooks/azuredeploy.json
-        field: tenant_ID
-        value: ${{ secrets.tenant_id }}
+    -name: replace
+     run: sed 's/configtenantId/5fa08688-b200-4f9d-aefa-d604d7c550fa/' playbooks/azuredeploy.json
     
     - name: Deploy Content to Azure Sentinel
       uses: azure/powershell@v1
