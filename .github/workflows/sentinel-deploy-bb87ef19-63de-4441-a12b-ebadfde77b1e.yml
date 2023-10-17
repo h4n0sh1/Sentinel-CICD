@@ -33,6 +33,12 @@ jobs:
       rootDirectory: '${{ github.workspace }}'
       githubAuthToken: ${{ secrets.GITHUB_TOKEN }}
       smartDeployment: 'true'
+      applicationId: ${{ secrets.application_id }}
+      applicationSecret : ${{ secrets.application_secret }}
+      tenantId : ${{ secrets.tenant_id }}
+      workspaceKey : ${{ secrets.workspace_key}}
+      username : ${{ secrets.username }}
+
 
     steps:
     - name: Login to Azure (Attempt 1)
@@ -76,6 +82,7 @@ jobs:
     - name: Deploy Content to Azure Sentinel
       uses: azure/powershell@v1
       with:
+
         azPSVersion: 'latest'
         inlineScript: |
           ${{ github.workspace }}//.github/workflows/azure-sentinel-deploy-bb87ef19-63de-4441-a12b-ebadfde77b1e.ps1
