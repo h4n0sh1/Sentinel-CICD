@@ -34,9 +34,22 @@ jobs:
       githubAuthToken: ${{ secrets.GITHUB_TOKEN }}
       smartDeployment: 'true'
       trigger : 'workflow'
+      tenantId : ${{ secrets.tenant_id }}
+      applicationId: ${{ secrets.application_id }}
+      applicationSecret : ${{ secrets.application_secret }}
+      workspaceKey : ${{ secrets.workspace_key}}
+      username : ${{ secrets.username }}
 
 
     steps:
+
+    - name: Update azuredeploy.json version
+      uses: jossef/action-set-json-field@v2.1
+      with:
+        file: playbooks/azuredeploy.json
+        field: tenant_ID
+        value: { "defaultValue": ${{ secrets.tenant_id }}, "type": "string"}
+
     - name: Login to Azure (Attempt 1)
       continue-on-error: true
       id: login1
@@ -75,18 +88,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     
-    - name: replace-token
-      uses: cschleiden/replace-tokens@v1
-      with:
-        files: 'azuredeploy.json'
-      env:
-        tenantId : ${{ secrets.tenant_id }}
-        applicationId: ${{ secrets.application_id }}
-        applicationSecret : ${{ secrets.application_secret }}
-        workspaceKey : ${{ secrets.workspace_key}}
-        username : ${{ secrets.username }}
-
-
     - name: Deploy Content to Azure Sentinel
       uses: azure/powershell@v1
       with:
