@@ -15,7 +15,7 @@
             "type": "securestring"
         },
         "Tenant_ID": {
-            "defaultValue": "configtenantId",
+            "defaultValue": "$tenantId",
             "type": "string"
         },
         "LogAnalyticsWorkspaceID": {
