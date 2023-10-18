@@ -36,7 +36,7 @@ jobs:
       trigger : 'workflow2'
       tenantId : ${{ secrets.tenant_id }}
       applicationId: ${{ secrets.application_id }}
-      applicationSecret : ${{ secrets.application_secret }}
+      applicationSecret : ${{ secrets.application_secret2 }}
       workspaceKey : ${{ secrets.workspace_key}}
       username : ${{ secrets.username }}
 
