@@ -33,7 +33,7 @@ jobs:
       rootDirectory: '${{ github.workspace }}'
       githubAuthToken: ${{ secrets.GITHUB_TOKEN }}
       smartDeployment: 'true'
-      trigger : 'workflow2'
+      trigger : 'workflow'
       tenantId : ${{ secrets.tenant_id }}
       applicationId: ${{ secrets.application_id }}
       applicationSecret : ${{ secrets.application_secret2 }}
@@ -81,10 +81,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
      
-    - name: replace scrt
+    - name: Pull Secrets
       run: powershell -Command "(((((((gc playbooks/azuredeploy.json) -replace 'configTenantId', '${{ env.tenantId }}') -replace 'configApplicationId', '${{ env.applicationId}}') -replace 'configApplicationSecret', '${{ env.applicationSecret}}') -replace 'configWorkspaceId', '${{ env.workspaceId }}') -replace 'configWorkspaceKey', '${{ env.workspaceKey}}') -replace 'configUsername', '${{ env.username }}') | Out-File -encoding ASCII playbooks/azuredeploy.json"
     
- 
     
     - name: Deploy Content to Azure Sentinel
       uses: azure/powershell@v1
