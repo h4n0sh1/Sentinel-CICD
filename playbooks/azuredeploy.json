@@ -7,33 +7,33 @@
             "type": "string"
         },
         "application_ID": {
-            "defaultValue": "$applicationId",
+            "defaultValue": "configApplicationId",
             "type": "string"
         },
         "application_secret": {
-            "defaultValue": "$applicationSecret",
+            "defaultValue": "configApplicationSecret",
             "type": "securestring"
         },
         "Tenant_ID": {
-            "defaultValue": "$tenantId",
+            "defaultValue": "configTenantId",
             "type": "string"
         },
         "LogAnalyticsWorkspaceID": {
             "type": "string",
-            "defaultValue": "$workspaceId",
+            "defaultValue": "configWorkspaceId",
             "metadata": {
                 "description": "The unique identifier of the Azure Log Analytics workspace."
             }
         },
         "LogAnalyticsWorkspaceKey": {
             "type": "securestring",
-            "defaultValue": "$workspaceKey",
+            "defaultValue": "configWorkspaceKey",
             "metadata": {
                 "description": "The primary or secondary key of the Azure Log Analytics workspace."
             }
         },
         "UserName": {
-            "defaultValue": "$username",
+            "defaultValue": "configUsername",
             "type": "string"
         }
     },
