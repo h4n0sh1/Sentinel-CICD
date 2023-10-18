@@ -82,7 +82,7 @@ jobs:
       uses: actions/checkout@v3
      
     - name: replace scrt
-      run: powershell -Command "(((((((gc playbooks/azuredeploy.json) -replace 'configTenantId', '${{ env.tenantId }}') -replace 'configApplicationId', ${{ env.applicationId}}) -replace 'configAppicationSecret', ${{ env.application Secret}}) -replace 'configWorkspaceId', ${{ env.workspaceId }}) -replace 'configWorkspaceKey', ${{ env.workspaceKey}}) -replace 'configUsername', ${{ env.username }}) | Out-File -encoding ASCII playbooks/azuredeploy.json"
+      run: powershell -Command "(((((((gc playbooks/azuredeploy.json) -replace 'configTenantId', '${{ env.tenantId }}') -replace 'configApplicationId', ${{ env.applicationId}}) -replace 'configApplicationSecret', ${{ env.applicationSecret}}) -replace 'configWorkspaceId', ${{ env.workspaceId }}) -replace 'configWorkspaceKey', ${{ env.workspaceKey}}) -replace 'configUsername', ${{ env.username }}) | Out-File -encoding ASCII playbooks/azuredeploy.json"
     
  
     
