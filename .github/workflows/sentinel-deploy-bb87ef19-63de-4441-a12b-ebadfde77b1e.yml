@@ -33,7 +33,7 @@ jobs:
       rootDirectory: '${{ github.workspace }}'
       githubAuthToken: ${{ secrets.GITHUB_TOKEN }}
       smartDeployment: 'true'
-      trigger : 'workflow'
+      trigger : 'workflow2'
       tenantId : ${{ secrets.tenant_id }}
       applicationId: ${{ secrets.application_id }}
       applicationSecret : ${{ secrets.application_secret }}
